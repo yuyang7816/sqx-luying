@@ -1,0 +1,271 @@
+export const protectedRoutes = [
+  {
+    path: '/404',
+    name: 'not-found',
+    component: () => import('@/views/NotFoundView.vue'),
+    meta: { title: '页面不存在', hidden: true },
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('@/views/DashboardView.vue'),
+    meta: { title: '数据统计', icon: 'DataBoard', affix: true },
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: () => import('@/views/user/UserListView.vue'),
+    meta: { title: 'C端用户', icon: 'User' },
+  },
+  {
+    path: '/rental',
+    name: 'rental',
+    redirect: '/rental/categories',
+    meta: { title: '租赁业务', icon: 'Goods' },
+    children: [
+      {
+        path: '/rental/categories',
+        name: 'rental-categories',
+        component: () => import('@/views/rental/CategoryView.vue'),
+        meta: { title: '分类管理' },
+      },
+      {
+        path: '/rental/goods',
+        name: 'rental-goods',
+        component: () => import('@/views/rental/GoodsListView.vue'),
+        meta: { title: '商品管理' },
+      },
+      {
+        path: '/rental/goods/create',
+        name: 'rental-goods-create',
+        component: () => import('@/views/rental/GoodsEditView.vue'),
+        meta: { title: '新增商品', hidden: true, activeMenu: '/rental/goods', permission: 'rent:goods:save' },
+      },
+      {
+        path: '/rental/goods/edit/:id',
+        name: 'rental-goods-edit',
+        component: () => import('@/views/rental/GoodsEditView.vue'),
+        meta: { title: '编辑商品', hidden: true, activeMenu: '/rental/goods' },
+      },
+      {
+        path: '/rental/stock',
+        name: 'rental-stock',
+        component: () => import('@/views/rental/StockView.vue'),
+        meta: { title: '库存管理' },
+      },
+      {
+        path: '/rental/orders',
+        name: 'rental-orders',
+        component: () => import('@/views/rental/OrderListView.vue'),
+        meta: { title: '订单管理' },
+      },
+      {
+        path: '/rental/orders/:id',
+        name: 'rental-order-detail',
+        component: () => import('@/views/rental/OrderDetailView.vue'),
+        meta: { title: '订单详情', hidden: true, activeMenu: '/rental/orders' },
+      },
+      {
+        path: '/rental/pricing',
+        name: 'rental-pricing',
+        component: () => import('@/views/rental/RentalPricingConfigView.vue'),
+        meta: { title: '定价配置' },
+      },
+      {
+        path: '/rental/inspections',
+        name: 'rental-inspections',
+        component: () => import('@/views/rental/InspectionView.vue'),
+        meta: { title: '验收记录' },
+      },
+    ],
+  },
+  {
+    path: '/merchant',
+    name: 'merchant',
+    redirect: '/merchant/applies',
+    meta: { title: '商户管理', icon: 'Shop' },
+    children: [
+      {
+        path: '/merchant/applies',
+        name: 'merchant-applies',
+        component: () => import('@/views/merchant/MerchantApplyView.vue'),
+        meta: { title: '入驻审核' },
+      },
+      {
+        path: '/merchant/list',
+        name: 'merchant-list',
+        component: () => import('@/views/merchant/MerchantListView.vue'),
+        meta: { title: '商户列表' },
+      },
+      {
+        path: '/merchant/deposit-refunds',
+        name: 'merchant-deposit-refunds',
+        component: () => import('@/views/merchant/MerchantDepositRefundView.vue'),
+        meta: { title: '保证金退还' },
+      },
+    ],
+  },
+  {
+    path: '/business',
+    name: 'business',
+    redirect: '/business/banners',
+    meta: { title: '业务管理', icon: 'Files' },
+    children: [
+      {
+        path: '/business/coupon-templates',
+        name: 'business-coupon-templates',
+        component: () => import('@/views/business/CouponTemplateView.vue'),
+        meta: { title: '优惠券模板' },
+      },
+      {
+        path: '/business/deposits',
+        name: 'business-deposits',
+        component: () => import('@/views/business/DepositView.vue'),
+        meta: { title: '押金管理' },
+      },
+      {
+        path: '/business/deposit-refunds',
+        redirect: '/business/deposits?tab=refunds',
+      },
+      {
+        path: '/business/feedbacks',
+        name: 'business-feedbacks',
+        component: () => import('@/views/business/FeedbackView.vue'),
+        meta: { title: '用户反馈' },
+      },
+      {
+        path: '/business/service-config',
+        name: 'business-service-config',
+        component: () => import('@/views/business/ServiceConfigView.vue'),
+        meta: { title: '客服中心配置' },
+      },
+      {
+        path: '/business/platform-cs',
+        name: 'business-platform-cs',
+        component: () => import('@/views/business/PlatformCsView.vue'),
+        meta: { title: '官方客服会话' },
+      },
+      {
+        path: '/business/banners',
+        name: 'business-banners',
+        component: () => import('@/views/business/BannerView.vue'),
+        meta: { title: '首页配置' },
+      },
+      {
+        path: '/business/messages',
+        name: 'business-messages',
+        component: () => import('@/views/business/MessagesView.vue'),
+        meta: { title: '消息管理' },
+      },
+      {
+        path: '/business/wallets',
+        name: 'business-wallets',
+        component: () => import('@/views/business/UserWalletView.vue'),
+        meta: { title: '用户钱包', hidden: true, activeMenu: '/users' },
+      },
+      {
+        path: '/business/wallet-transactions',
+        name: 'business-wallet-transactions',
+        component: () => import('@/views/business/UserWalletTransactionView.vue'),
+        meta: { title: '钱包流水', hidden: true, activeMenu: '/users' },
+      },
+      {
+        path: '/business/referral-config',
+        redirect: '/business/invite-poster-config',
+      },
+      {
+        path: '/business/invite-poster-config',
+        name: 'business-invite-poster-config',
+        component: () => import('@/views/business/InvitePosterConfigView.vue'),
+        meta: { title: '邀请配置' },
+      },
+      {
+        path: '/business/referral-users',
+        redirect: '/users',
+      },
+      {
+        path: '/business/referral-commissions',
+        name: 'business-referral-commissions',
+        component: () => import('@/views/business/ReferralCommissionView.vue'),
+        meta: { title: '分销佣金', hidden: true, activeMenu: '/users' },
+      },
+      {
+        path: '/business/withdraw-records',
+        name: 'business-withdraw-records',
+        component: () => import('@/views/business/WithdrawRecordView.vue'),
+        meta: { title: '提现管理' },
+      },
+      {
+        path: '/business/withdrawal-accounts',
+        name: 'business-withdrawal-accounts',
+        component: () => import('@/views/business/WithdrawalAccountView.vue'),
+        meta: { title: '提现账户', hidden: true, activeMenu: '/users' },
+      },
+      {
+        path: '/business/sms-templates',
+        name: 'business-sms-templates',
+        component: () => import('@/views/business/SmsTemplateView.vue'),
+        meta: { title: '短信模板' },
+      },
+    ],
+  },
+  {
+    path: '/system',
+    name: 'system',
+    redirect: '/system/admins',
+    meta: { title: '系统管理', icon: 'Setting' },
+    children: [
+      {
+        path: '/system/admins',
+        name: 'system-admins',
+        component: () => import('@/views/system/AdminManagerView.vue'),
+        meta: { title: '管理员管理', permission: 'sys:user:list' },
+      },
+      {
+        path: '/system/roles',
+        name: 'system-roles',
+        component: () => import('@/views/system/RoleManagerView.vue'),
+        meta: { title: '角色管理', permission: 'sys:role:list' },
+      },
+      {
+        path: '/system/menus',
+        name: 'system-menus',
+        component: () => import('@/views/system/MenuManagerView.vue'),
+        meta: { title: '菜单管理', permission: 'sys:menu:list' },
+      },
+      {
+        path: '/system/permissions',
+        name: 'system-permissions',
+        component: () => import('@/views/system/PermissionManagerView.vue'),
+        meta: { title: '权限管理', permission: 'sys:menu:list' },
+      },
+      {
+        path: '/system/dicts',
+        name: 'system-dicts',
+        component: () => import('@/views/system/DictManagerView.vue'),
+        meta: { title: '字典管理', permission: 'sys:dict:list' },
+      },
+      {
+        path: '/system/configs',
+        name: 'system-configs',
+        component: () => import('@/views/system/SystemConfigView.vue'),
+        meta: { title: '系统配置', permission: 'sys:config:list' },
+      },
+      {
+        path: '/system/logs',
+        name: 'system-logs',
+        component: () => import('@/views/system/LogManagerView.vue'),
+        meta: { title: '操作日志', permission: 'sys:log:list' },
+      },
+    ],
+  },
+]
+
+export const whiteRoutes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/LoginView.vue'),
+    meta: { title: '登录' },
+  },
+]

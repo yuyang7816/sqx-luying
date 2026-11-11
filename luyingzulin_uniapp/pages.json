@@ -1,0 +1,522 @@
+/*
+	公司信息（仅注释，不展示、不影响运行）
+	产品官网：https://www.xiansqx.cn/
+	商业授权 / 体验全套：微信 maxdlln，备注【旅游】
+	微信同电话：13895585204
+	uni-app QQ 技术交流群：592576277
+	学习资料：公众号【码兄】回复【uniApp】
+	以上项目仅供学习使用、不可商用
+
+	更多产品：
+	- 省钱兄淘宝客 https://sqx.xiansqx.com/
+	- 省钱兄自营商城 http://games.xiansqx.com
+	- 省钱兄任务悬赏 http://rw.xiansqx.com
+	- 省钱兄同城跑腿 https://pt.xiansqx.com/
+	- 省钱兄同城外卖 https://wm.xiansqx.com/
+	- 省钱兄游戏陪玩 https://pw.xiansqx.com/
+	- 省钱兄抖客 https://dk.xiansqx.com/
+	- 省钱兄上门洗车 https://xc.xiansqx.com/
+
+	现成方案：多商户电商、蛋糕店点餐、单商户电商、O2O 核销、淘宝客、任务、分销会员、社区团购、拼多多/京东返利、支付、好差评、积分、校园跑腿、任务兼职、知识付费、外卖跑腿/点餐、短视频电商、众包接单、任务悬赏、跨境电商、电竞比赛、霸王餐、外卖红包、同城/校园外卖、陪玩、同城跑腿、社区兼职、家政、预约、月嫂、上门洗车、线上云酒馆、鲜花店预约、上门洗鞋、露营基地预约等。
+	承接小程序、微信公众号、APP、软著商标与官网开发。
+*/
+{
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^MerchantOrderCard$": "@/components/MerchantOrderCard.vue",
+			"^u--(.*)": "@/uni_modules/uview-plus/components/u-$1/u-$1.vue",
+			"^up-(.*)": "@/uni_modules/uview-plus/components/u-$1/u-$1.vue",
+			"^u-([^-].*)": "@/uni_modules/uview-plus/components/u-$1/u-$1.vue"
+		}
+	},
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/cart/index",
+			"style": {
+				"navigationBarTitleText": "租物车",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/category/index",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": true
+			}
+		}
+	],
+	"subPackages": [
+		{
+			"root": "packageGoods",
+			"pages": [
+				{
+					"path": "list",
+					"style": {
+						"navigationBarTitleText": "装备列表",
+						"enablePullDownRefresh": true,
+						"onReachBottomDistance": 120
+					}
+				},
+				{
+					"path": "detail",
+					"style": {
+						"navigationBarTitleText": "装备详情"
+					}
+				}
+			]
+		},
+		{
+			"root": "packageSearch",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "搜索"
+					}
+				}
+			]
+		},
+		{
+			"root": "packageOrder",
+			"pages": [
+				{
+					"path": "confirm",
+					"style": {
+						"navigationBarTitleText": "确认订单"
+					}
+				},
+				{
+					"path": "pay-result",
+					"style": {
+						"navigationBarTitleText": "支付结果"
+					}
+				},
+				{
+					"path": "list",
+					"style": {
+						"navigationBarTitleText": "我的订单",
+						"onReachBottomDistance": 120
+					}
+				},
+				{
+					"path": "detail",
+					"style": {
+						"navigationBarTitleText": "订单详情"
+					}
+				},
+				{
+					"path": "return-apply",
+					"style": {
+						"navigationBarTitleText": "归还申请"
+					}
+				},
+				{
+					"path": "renew",
+					"style": {
+						"navigationBarTitleText": "续租"
+					}
+				}
+			]
+		},
+		{
+			"root": "packageUser",
+			"pages": [
+				{
+					"path": "login",
+					"style": {
+						"navigationBarTitleText": "登录"
+					}
+				},
+				{
+					"path": "register",
+					"style": {
+						"navigationBarTitleText": "注册"
+					}
+				},
+				{
+					"path": "forgot-password",
+					"style": {
+						"navigationBarTitleText": "找回密码"
+					}
+				},
+				{
+					"path": "favorite",
+					"style": {
+						"navigationBarTitleText": "我的收藏"
+					}
+				},
+				{
+					"path": "coupon",
+					"style": {
+						"navigationBarTitleText": "我的优惠券"
+					}
+				},
+				{
+					"path": "coupon-center",
+					"style": {
+						"navigationBarTitleText": "领券中心"
+					}
+				},
+				{
+					"path": "address-list",
+					"style": {
+						"navigationBarTitleText": "地址管理"
+					}
+				},
+				{
+					"path": "address-edit",
+					"style": {
+						"navigationBarTitleText": "编辑地址"
+					}
+				},
+				{
+					"path": "wallet",
+					"style": {
+						"navigationBarTitleText": "我的钱包"
+					}
+				},
+				{
+					"path": "wallet-recharge",
+					"style": {
+						"navigationBarTitleText": "账户充值"
+					}
+				},
+				{
+					"path": "wallet-withdraw",
+					"style": {
+						"navigationBarTitleText": "余额提现"
+					}
+				},
+				{
+					"path": "wallet-withdraw-guide",
+					"style": {
+						"navigationBarTitleText": "绑定收款账户"
+					}
+				},
+				{
+					"path": "wallet-withdraw-bind",
+					"style": {
+						"navigationBarTitleText": "绑定收款账户"
+					}
+				},
+				{
+					"path": "wallet-withdraw-records",
+					"style": {
+						"navigationBarTitleText": "提现明细"
+					}
+				},
+				{
+					"path": "wallet-record",
+					"style": {
+						"navigationBarTitleText": "钱包明细"
+					}
+				},
+				{
+					"path": "vip",
+					"style": {
+						"navigationBarTitleText": "会员中心"
+					}
+				},
+				{
+					"path": "profile",
+					"style": {
+						"navigationBarTitleText": "个人资料"
+					}
+				},
+				{
+					"path": "setting",
+					"style": {
+						"navigationBarTitleText": "设置"
+					}
+				},
+				{
+					"path": "feedback",
+					"style": {
+						"navigationBarTitleText": "意见反馈"
+					}
+				},
+				{
+					"path": "invite",
+					"style": {
+						"navigationBarTitleText": "推广中心"
+					}
+				},
+				{
+					"path": "invite-record",
+					"style": {
+						"navigationBarTitleText": "邀请记录"
+					}
+				},
+				{
+					"path": "invite-users",
+					"style": {
+						"navigationBarTitleText": "我的团队"
+					}
+				},
+				{
+					"path": "invite-commission",
+					"style": {
+						"navigationBarTitleText": "分佣列表"
+					}
+				},
+				{
+					"path": "service",
+					"style": {
+						"navigationBarTitleText": "客服中心"
+					}
+				},
+				{
+					"path": "platform-im-chat",
+					"style": {
+						"navigationBarTitleText": "官方客服"
+					}
+				}
+			]
+		},
+		{
+			"root": "packageContent",
+			"pages": [
+				{
+					"path": "message",
+					"style": {
+						"navigationBarTitleText": "消息"
+					}
+				},
+				{
+					"path": "im-chat",
+					"style": {
+						"navigationBarTitleText": "联系商家"
+					}
+				},
+				{
+					"path": "help",
+					"style": {
+						"navigationBarTitleText": "帮助中心"
+					}
+				},
+				{
+					"path": "city-select",
+					"style": {
+						"navigationBarTitleText": "选择城市"
+					}
+				},
+				{
+					"path": "deposit",
+					"style": {
+						"navigationBarTitleText": "租赁押金"
+					}
+				},
+				{
+					"path": "deposit-detail",
+					"style": {
+						"navigationBarTitleText": "押金明细",
+						"onReachBottomDistance": 120
+					}
+				},
+				{
+					"path": "agreement",
+					"style": {
+						"navigationBarTitleText": "协议详情"
+					}
+				},
+				{
+					"path": "web-view",
+					"style": {
+						"navigationBarTitleText": ""
+					}
+				}
+			]
+		},
+		{
+			"root": "packageMerchant",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "商家中心"
+					}
+				},
+				{
+					"path": "apply",
+					"style": {
+						"navigationBarTitleText": "商家入驻"
+					}
+				},
+				{
+					"path": "progress",
+					"style": {
+						"navigationBarTitleText": "入驻进度"
+					}
+				},
+				{
+					"path": "dashboard",
+					"style": {
+						"navigationBarTitleText": "商家工作台"
+					}
+				},
+				{
+					"path": "revenue",
+					"style": {
+						"navigationBarTitleText": "营业金额统计"
+					}
+				},
+				{
+					"path": "goods",
+					"style": {
+						"navigationBarTitleText": "商品管理"
+					}
+				},
+				{
+					"path": "goods-edit",
+					"style": {
+						"navigationBarTitleText": "编辑商品"
+					}
+				},
+				{
+					"path": "stock-adjust",
+					"style": {
+						"navigationBarTitleText": "库存调整"
+					}
+				},
+				{
+					"path": "orders",
+					"style": {
+						"navigationBarTitleText": "订单处理"
+					}
+				},
+				{
+					"path": "order-detail",
+					"style": {
+						"navigationBarTitleText": "商家订单详情"
+					}
+				},
+				{
+					"path": "inspection",
+					"style": {
+						"navigationBarTitleText": "验收结果录入"
+					}
+				},
+				{
+					"path": "store",
+					"style": {
+						"navigationBarTitleText": "门店设置"
+					}
+				},
+				{
+					"path": "staff",
+					"style": {
+						"navigationBarTitleText": "员工管理"
+					}
+				},
+				{
+					"path": "staff-center",
+					"style": {
+						"navigationBarTitleText": "员工中心"
+					}
+				},
+				{
+					"path": "wallet",
+					"style": {
+						"navigationBarTitleText": "商户钱包"
+					}
+				},
+				{
+					"path": "wallet-record",
+					"style": {
+						"navigationBarTitleText": "经营明细"
+					}
+				},
+				{
+					"path": "wallet-withdraw",
+					"style": {
+						"navigationBarTitleText": "经营余额提现"
+					}
+				},
+				{
+					"path": "wallet-withdraw-records",
+					"style": {
+						"navigationBarTitleText": "经营提现明细"
+					}
+				},
+				{
+					"path": "wallet-deposit",
+					"style": {
+						"navigationBarTitleText": "商户保证金"
+					}
+				},
+				{
+					"path": "message",
+					"style": {
+						"navigationBarTitleText": "商户消息"
+					}
+				},
+				{
+					"path": "im-chat",
+					"style": {
+						"navigationBarTitleText": "用户咨询"
+					}
+				}
+			]
+		}
+	],
+	"globalStyle": {
+		// #ifdef H5
+		"navigationStyle": "custom",
+		// #endif
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "露营装备租赁",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#ffffff"
+	},
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#59b50e",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/image/tabbar/index.png",
+				"selectedIconPath": "static/image/tabbar/index_.png"
+			},
+			{
+				"pagePath": "pages/category/index",
+				"text": "分类",
+				"iconPath": "static/image/tabbar/fenlei.png",
+				"selectedIconPath": "static/image/tabbar/msg_.png"
+			},
+			{
+				"pagePath": "pages/cart/index",
+				"text": "租物车",
+				"iconPath": "static/image/tabbar/shop.png",
+				"selectedIconPath": "static/image/tabbar/shop_.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "static/image/tabbar/my.png",
+				"selectedIconPath": "static/image/tabbar/my_.png"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}

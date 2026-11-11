@@ -1,0 +1,9 @@
+package com.sqx.app.vip.order.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.sqx.app.vip.order.domain.entity.VipOrder;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface VipOrderMapper extends BaseMapper<VipOrder> {
+}

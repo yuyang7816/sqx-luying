@@ -1,0 +1,7 @@
+export * from '@/api/rental/category'
+export * from '@/api/rental/goods'
+export * from '@/api/rental/stock'
+export * from '@/api/rental/order'
+export * from '@/api/rental/inspection'
+export * from '@/api/rental/pricing'
+export * from '@/api/rental/dashboard'
